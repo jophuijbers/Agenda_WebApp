@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app dark>
     <nav-bar/>
     <v-content class="mx-4 my-3">
       <router-view></router-view>
@@ -14,8 +14,5 @@ export default {
   components: {
     'nav-bar': Navbar,
   },
-  data: () => ({
-    //
-  }),
 };
 </script>

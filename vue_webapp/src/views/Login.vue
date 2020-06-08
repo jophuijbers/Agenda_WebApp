@@ -3,7 +3,7 @@
     <v-container>
       <v-col>
         <v-col>
-          <h1>Log in</h1>
+          <h1>Sign in</h1>
         </v-col>
 
         <v-col>
@@ -25,7 +25,8 @@
         </v-col>
         <v-col>
           <v-btn class="mr-4" :disabled="!valid" color="success" @click="submit">Log in</v-btn>
-          <v-btn class="mr-4" color="error" @click="reset">Reset Form</v-btn>
+          <v-btn class="mr-4" color="error" @click="reset">Reset</v-btn>
+          <router-link to="/register">Sign up</router-link>
         </v-col>
       </v-col>
     </v-container>
@@ -33,6 +34,8 @@
 </template>
 
 <script>
+import { /*mapGetters,*/ mapActions } from 'vuex';
+
 export default {
   data() {
     return {
@@ -40,7 +43,7 @@ export default {
       email: "",
       emailRules: [
         v => !!v || "E-mail is required",
-        v => /.+@.+\..+/.test(v) || "E-mail must be valid"
+        // v => /.+@.+\..+/.test(v) || "E-mail must be valid"
       ],
       password: "",
       show1: false,
@@ -59,19 +62,16 @@ export default {
     }
   },
   methods: {
+    ...mapActions(['login']),
     submit() {
       this.valid = this.$refs.form.validate();
       if (this.valid === true) {
-        this.$http
-          .get("https://localhost:44390/api/Users", this.user)
-          .then(result => {
-            console.log(result.data); // https://router.vuejs.org/guide/advanced/navigation-guards.html
-          });
+        this.login(this.user);
       }
     },
     reset() {
       this.$refs.form.reset();
-    }
+    },
   }
 };
 </script>

@@ -1,31 +1,57 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Dashboard from '../views/Dashboard.vue'
-import Projects from '../views/Projects.vue'
+import Calendar from '../views/Calendar.vue'
+import GroupCalendar from '../views/GroupCalendar.vue'
+import Group from '../views/Group.vue'
 import Profile from '../views/Profile.vue'
+import Settings from '../views/Settings.vue'
 import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
-//import Axios from 'axios'
+import AddEvent from '../views/AddEvent.vue'
+import Axios from 'axios'
+import store from '../store/modules/users'
 
+Vue.prototype.$http = Axios;
 Vue.use(VueRouter)
-// Axios.defaults.baseURL = 'https://localhost:44364';
-// Vue.prototype.$http = Axios;
+
+function checkAuthentication(to, from, next) {
+  if (!store.state.access_token) {
+    next('/login');
+  } else {
+    next();
+  }
+}
 
 const routes = [
   {
     path: '/',
-    name: 'dashboard',
-    component: Dashboard
+    name: 'calendar',
+    component: Calendar,
+    beforeEnter: checkAuthentication
   },
   {
-    path: '/projects',
-    name: 'projects',
-    component: Projects
+    path: '/groupcalendar',
+    name: 'group_calendar',
+    component: GroupCalendar,
+    beforeEnter: checkAuthentication
+  },
+  {
+    path: '/group',
+    name: 'group',
+    component: Group,
+    beforeEnter: checkAuthentication
   },
   {
     path: '/profile',
     name: 'profile',
-    component: Profile
+    component: Profile,
+    beforeEnter: checkAuthentication
+  },
+  {
+    path: '/settings',
+    name: 'settings',
+    component: Settings,
+    beforeEnter: checkAuthentication
   },
   {
     path: '/login',
@@ -36,6 +62,11 @@ const routes = [
     path: '/register',
     name: 'register',
     component: Register
+  },
+  {
+    path: '/addevent',
+    name: 'addevent',
+    component: AddEvent
   },
 ]
 

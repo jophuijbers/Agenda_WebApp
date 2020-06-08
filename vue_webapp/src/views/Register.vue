@@ -3,7 +3,7 @@
     <v-container>
       <v-col>
         <v-col>
-          <h1>Create an account</h1>
+          <h1>Sign up</h1>
         </v-col>
 
         <v-col>
@@ -41,7 +41,7 @@
         </v-col>
        <v-col>
           <v-btn class="mr-4" :disabled="!valid" color="success" @click="submit">Sign up</v-btn>
-          <v-btn class="mr-4" color="error" @click="reset">Reset Form</v-btn>
+          <v-btn class="mr-4" color="error" @click="reset">Reset</v-btn>
         </v-col>
       </v-col>
     </v-container>
@@ -54,11 +54,9 @@ export default {
     return {
       valid: true,
       email: "",
-      //available: true,
       emailRules: [
         v => !!v || "E-mail is required",
         v => /.+@.+\..+/.test(v) || "E-mail must be valid"
-        // v => this.checkEmail(v) || "E-mail is not avaiable"
       ],
       password: "",
       show1: false,
@@ -91,7 +89,11 @@ export default {
   watch: {
     email(email) {
       this.$http
-        .get("https://localhost:44364/api/Users/IsEmailAvailable/" + email)
+        .get("api/Users/IsEmailAvailable", {
+          params: {
+            "Email": email
+          }
+        })
         .then(result => {
           this.errors = result.data ? [] : ["Email is already in use"];
         });
@@ -102,7 +104,7 @@ export default {
       this.valid = this.$refs.form.validate();
       if (this.valid === true) {
         this.$http
-          .post("https://localhost:44390/api/Users/Register", this.user)
+          .post("api/Users/Register", this.user)
           .then(result => {
             console.log(result.data);
             this.$router.push("/");
