@@ -8,6 +8,7 @@
 
         <v-col>
           <v-text-field
+            data-type="email"
             v-model="email"
             :rules="emailRules"
             label="E-mail*"
@@ -18,6 +19,7 @@
 
         <v-col>
           <v-text-field
+            data-type="password"
             label="Password*"
             v-model="password"
             :rules="passwordRules"
@@ -28,6 +30,7 @@
         </v-col>
         <v-col>
           <v-text-field
+            data-type="re-password"
             label="Confirm password*"
             v-model="repassword"
             :rules="repasswordRules"
@@ -37,10 +40,13 @@
           ></v-text-field>
         </v-col>
         <v-col>
-          <p>Already have an account? Click <router-link to="/login">here</router-link> to login</p>
+          <p>
+            Already have an account? Click
+            <router-link to="/login">here</router-link>to login
+          </p>
         </v-col>
-       <v-col>
-          <v-btn class="mr-4" :disabled="!valid" color="success" @click="submit">Sign up</v-btn>
+        <v-col>
+          <v-btn class="mr-4" type="submit" :disabled="!valid" color="success" @click="submit">Sign up</v-btn>
           <v-btn class="mr-4" color="error" @click="reset">Reset</v-btn>
         </v-col>
       </v-col>
@@ -91,7 +97,7 @@ export default {
       this.$http
         .get("api/Users/IsEmailAvailable", {
           params: {
-            "Email": email
+            Email: email
           }
         })
         .then(result => {
@@ -103,12 +109,10 @@ export default {
     submit() {
       this.valid = this.$refs.form.validate();
       if (this.valid === true) {
-        this.$http
-          .post("api/Users/Register", this.user)
-          .then(result => {
-            console.log(result.data);
-            this.$router.push("/");
-          });
+        this.$http.post("api/Users/Register", this.user).then(result => {
+          console.log(result.data);
+          this.$router.push("/");
+        });
       }
     },
     reset() {

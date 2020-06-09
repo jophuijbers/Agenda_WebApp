@@ -7,11 +7,12 @@
         </v-col>
 
         <v-col>
-          <v-text-field v-model="email" :rules="emailRules" label="E-mail*" required></v-text-field>
+          <v-text-field data-type="email" v-model="email" :rules="emailRules" label="E-mail*" required></v-text-field>
         </v-col>
 
         <v-col>
           <v-text-field
+            data-type="password"
             label="Password*"
             v-model="password"
             :rules="passwordRules"
@@ -24,7 +25,7 @@
           <router-link to="/forgot_password">Forgot password?</router-link>
         </v-col>
         <v-col>
-          <v-btn class="mr-4" :disabled="!valid" color="success" @click="submit">Log in</v-btn>
+          <v-btn class="mr-4" type="submit" :disabled="!valid" color="success" @click="submit">Log in</v-btn>
           <v-btn class="mr-4" color="error" @click="reset">Reset</v-btn>
           <router-link to="/register">Sign up</router-link>
         </v-col>
