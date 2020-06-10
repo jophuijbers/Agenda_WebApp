@@ -25,7 +25,7 @@
           <router-link to="/forgot_password">Forgot password?</router-link>
         </v-col>
         <v-col>
-          <v-btn class="mr-4" type="submit" :disabled="!valid" color="success" @click="submit">Log in</v-btn>
+          <v-btn class="mr-4" type="submit" :disabled="!valid" color="success" @click.prevent="submit">Log in</v-btn>
           <v-btn class="mr-4" color="error" @click="reset">Reset</v-btn>
           <router-link to="/register">Sign up</router-link>
         </v-col>

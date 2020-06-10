@@ -47,7 +47,7 @@
         </v-col>
         <v-col>
           <v-btn class="mr-4" type="submit" :disabled="!valid" color="success" @click="submit">Sign up</v-btn>
-          <v-btn class="mr-4" color="error" @click="reset">Reset</v-btn>
+          <v-btn class="mr-4" color="error" @click.prevent="reset">Reset</v-btn>
         </v-col>
       </v-col>
     </v-container>
