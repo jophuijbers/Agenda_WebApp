@@ -8,6 +8,8 @@ jobs:
         uses: actions/checkout@v1
 
       - name: Cypress run
-        run: cd vue_webapp
-        run: npm run serve
-        run: npm run cypress:open
+        uses: ./
+        with: 
+          working-directory: vue_webapp/cypress/integration
+          build: npx cypress info
+      
