@@ -10,4 +10,4 @@ describe('Register test', () => {
       cy.get('[type="submit"]').click();
 
     });
-  })
+  });
