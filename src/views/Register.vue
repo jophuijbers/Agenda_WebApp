@@ -56,7 +56,7 @@
 
 <script>
 export default {
-  data() { // test
+  data() {
     return {
       valid: true,
       email: "",
