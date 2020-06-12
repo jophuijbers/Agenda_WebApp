@@ -1,8 +1,7 @@
 language: node_js
-os: windows
 node_js:
  - "12.16.1"
 install:
  - npm install
 script:
- - npx cypress run
+ - npm run test
