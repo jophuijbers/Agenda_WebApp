@@ -1,6 +1,8 @@
+dist: xenial
+
 language: node_js
 node_js: 
- - 12
+ - "Its/*"
 cache: npm
 
 branches:
