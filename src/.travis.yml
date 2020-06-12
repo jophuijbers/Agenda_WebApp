@@ -1,10 +1,14 @@
 language: node_js
 node_js: 
- - 12.16.1
+ - "Its/*"
 cache: npm
+
+branches:
+  only:
+    - master
 
 install:
  - npm install
 
 script:
- - npx cypress run
+ - npm run test
