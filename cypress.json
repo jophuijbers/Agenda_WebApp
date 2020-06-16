@@ -1,4 +1,6 @@
 {
   "baseUrl": "https://i430817.hera.fhict.nl",
-  "projectId": "nt13qa"
+  "projectId": "nt13qa",
+  "test_email": "test@cypress.cy",
+  "test_password": "CypressTest"
 }

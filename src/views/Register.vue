@@ -8,7 +8,6 @@
 
         <v-col>
           <v-text-field
-            data-type="email"
             v-model="email"
             :rules="emailRules"
             label="E-mail*"
@@ -19,7 +18,6 @@
 
         <v-col>
           <v-text-field
-            data-type="password"
             label="Password*"
             v-model="password"
             :rules="passwordRules"
@@ -30,7 +28,6 @@
         </v-col>
         <v-col>
           <v-text-field
-            data-type="re-password"
             label="Confirm password*"
             v-model="repassword"
             :rules="repasswordRules"

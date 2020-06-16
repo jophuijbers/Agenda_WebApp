@@ -3,13 +3,13 @@ describe('Login test', () => {
       cy.visit('/login');
     });
     it('Can login', () => {
-      cy.get('[data-type="email"]').clear().type('test@test.test').should('have.value', 'test@test.test');
-      cy.get('[data-type="password"]').clear().type('Testtest').should('have.value', 'Testtest')
+      cy.get('#input-39').clear().type(Cypress.config("test_email")).should('have.value', Cypress.config("test_email"));
+      cy.get('#input-42').clear().type(Cypress.config("test_password")).should('have.value', Cypress.config("test_password"));
   
-      cy.get('[type="submit"]').click();
+      cy.get('.success').click();
 
       cy.visit('/profile');
-
-      cy.url().should('include', '/profile');
+      cy.wait(500);
+      cy.get('.profile > :nth-child(3)').should('contain', Cypress.config("test_email"));
     });
   })

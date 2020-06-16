@@ -7,12 +7,11 @@
         </v-col>
 
         <v-col>
-          <v-text-field data-type="email" v-model="email" :rules="emailRules" label="E-mail*" required></v-text-field>
+          <v-text-field v-model="email" :rules="emailRules" label="E-mail*" required></v-text-field>
         </v-col>
 
         <v-col>
           <v-text-field
-            data-type="password"
             label="Password*"
             v-model="password"
             :rules="passwordRules"

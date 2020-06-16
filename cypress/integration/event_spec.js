@@ -9,8 +9,7 @@ describe('Add single day event test', () => {
 
     cy.get('[type="radio"]').first().check({ force: true }, 'single').should('be.checked');
 
-    //cy.get('[data-cy="time"]').click();
-    cy.get('[type="text"]').first().click();
+    cy.get(':nth-child(5) > .v-input').click();
 
   });
 });
