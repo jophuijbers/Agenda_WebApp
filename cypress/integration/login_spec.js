@@ -1,6 +1,6 @@
 describe('Login test', () => {
     before(() => {
-      cy.visit('https://i430817.hera.fhict.nl');
+      cy.visit('/login');
     });
     it('Can login', () => {
       cy.get('[data-type="email"]').clear().type('test@test.test').should('have.value', 'test@test.test');
@@ -8,5 +8,8 @@ describe('Login test', () => {
   
       cy.get('[type="submit"]').click();
 
+      cy.visit('/profile');
+
+      cy.url().should('include', '/profile');
     });
   })
