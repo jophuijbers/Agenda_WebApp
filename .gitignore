@@ -19,3 +19,6 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.sw?
+cypress/videos/event_spec.js.mp4
+cypress/videos/login_spec.js.mp4
+cypress/videos/register_spec.js.mp4
