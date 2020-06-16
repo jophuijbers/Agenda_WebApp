@@ -1,4 +1,6 @@
 language: node_js
 node_js: "12.16.1"
 install: npm install
-script: npm run test
+script: 
+ - npm run serve & 
+ - npm run test

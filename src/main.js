@@ -5,7 +5,7 @@ import vuetify from './plugins/vuetify';
 import axios from 'axios'
 import store from './store/store'
 
-axios.defaults.baseURL = 'https://localhost:44364/'; //'https://localhost:44364/'; 
+axios.defaults.baseURL = 'https://i430817core.venus.fhict.nl/'; //'https://localhost:44364/'; 
 
 Vue.config.productionTip = false
 
