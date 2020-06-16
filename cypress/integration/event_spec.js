@@ -1,6 +1,6 @@
 describe('Add single day event test', () => {
     before(() => {
-      cy.request('https://i430817.hera.fhict.nl/addevent');
+      cy.visit('https://i430817.hera.fhict.nl/addevent');
     });
     it('Can create event', () => {
         
@@ -18,7 +18,7 @@ describe('Add single day event test', () => {
 
   describe('Add multiple day event test', () => {
     before(() => {
-      cy.request('https://i430817.hera.fhict.nl/addevent');
+      cy.visit('https://i430817.hera.fhict.nl/addevent');
     });
     it('Can create event', () => {
         
