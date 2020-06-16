@@ -1,6 +1,6 @@
 describe('Login test', () => {
     before(() => {
-      cy.visit('https://i430817.hera.fhict.nl/login');
+      cy.visit('https://i430817.hera.fhict.nl');
     });
     it('Can login', () => {
       cy.get('[data-type="email"]').clear().type('test@test.test').should('have.value', 'test@test.test');
