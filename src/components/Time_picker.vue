@@ -12,6 +12,7 @@
   >
     <template v-slot:activator="{ on }">
       <v-text-field
+       data-cy="time"
         v-model="inputValue"
         :label="label"
         prepend-icon="access_time"

@@ -10,13 +10,13 @@
           <h1>Create event</h1>
         </v-col>
         <v-col cols="12">
-          <v-text-field v-model="event.name" label="Name*" required></v-text-field>
+          <v-text-field data-cy="name" v-model="event.name" label="Name*" required></v-text-field>
         </v-col>
         <v-col cols="12">
-          <v-textarea v-model="event.description" :auto-grow="true" :rows="3" label="Description"></v-textarea>
+          <v-textarea data-cy="description" v-model="event.description" :auto-grow="true" :rows="3" label="Description"></v-textarea>
         </v-col>
         <v-col cols="12">
-          <v-radio-group v-model="event_type" mandatory>
+          <v-radio-group data-cy="select" v-model="event_type" mandatory>
             <v-radio label="Timed event (single day)" value="single"></v-radio>
             <v-radio label="Timeless event (multiple days)" value="multiple"></v-radio>
           </v-radio-group>

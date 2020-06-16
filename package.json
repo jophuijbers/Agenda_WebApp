@@ -7,7 +7,7 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "cypress:open": "cypress open",
-    "test": "set NODE_OPTIONS= npx cypress run"
+    "test": "concurrently \"npm run serve\" \"npx cypress run\""
   },
   "dependencies": {
     "axios": "^0.19.2",
@@ -24,6 +24,7 @@
     "@vue/cli-plugin-router": "~4.2.0",
     "@vue/cli-service": "~4.2.0",
     "babel-eslint": "^10.0.3",
+    "concurrently": "^5.2.0",
     "cypress": "^4.8.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.1.2",
