@@ -1,6 +1,6 @@
 describe('Register test', () => {
     before(() => {
-      cy.visit('/register');
+      cy.visit('http://localhost:8080/register');
     });
     it('Can register', () => {
       cy.get('[data-type="email"]').clear().type('test@test.test4').should('have.value', 'test@test.test4');

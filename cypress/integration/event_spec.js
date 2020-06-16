@@ -1,6 +1,6 @@
 describe('Add single day event test', () => {
     before(() => {
-      cy.visit('/addevent');
+      cy.visit('http://localhost:8080/addevent');
     });
     it('Can create event', () => {
         
